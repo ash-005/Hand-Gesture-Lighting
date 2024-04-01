@@ -1,0 +1,46 @@
+1. using openCV module from python packages to take gestures using laptop/mobile camera
+
+2. using inbuit cvzone module 'HandTrackingModule's HandDetector
+   we built the frame and get the hand recognizor
+
+3. Once we get the hands identified using obj.findHands(frame)
+   we then take the first element and pass it ias obj.fingersUp(obj2)
+   to get the number of fingers help up by the user
+
+4. We then pass the count of fingers. convert as string to pass as string to
+   Arduino UNO to read the data we are sending. Encode it and its done.
+
+5. To close the frame we have the ESC key as the way to close it.
+
+
+6. cv2.destroyAllWindows ends the frame
+
+
+
+=-----------------------------------------------------------------
+
+for Arduino UNO code 
+
+1. we have created a STRING variable to store the incoming data from the python source file (count of fingers)
+
+2. we selected the channel as 115200 here, (serial moniter channel is CARRIAGE RETURN)
+
+3. Inside the while loop we defien the LED pins and then we use 
+   Serial.readStringUntil() to read the string till it reaches '\r'
+   '\r' is the  carriage return character, it gets to the start of the	
+   line before advancing to the next line 
+
+4. we use if-else to perform the actions on LEDs
+
+
+
+----------------------------------------------------------------------
+
+Next up we plan to make it wireless using NodeMCU 8266 
+relay data from python to arduino via nodeMCU
+
+NodeMCU based control
+app based interface
+more gesture
+or 
+Make it bluetooth based on the webApp	
